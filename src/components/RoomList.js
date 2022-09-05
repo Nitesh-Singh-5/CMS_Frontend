@@ -3,6 +3,7 @@ import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function RoomList({ room }) {
+  const { tags } = room;
   return (
     <Card className="my-3 p-3 rounded">
       <Link to={`/rooms/${room._id}`}>
@@ -16,14 +17,15 @@ function RoomList({ room }) {
           </Card.Title>
         </Link>
 
-        <Card.Text as="div">
-          <div className="my-3">
-            {/* <Rating
-              value={room.rating}
-              text={`${room.numReviews} reviews`}
-              color={"#f8e825"}
-            /> */}
-          </div>
+        <Card.Text>
+          {tags?.map((item, id) => {
+            return (
+              <div className="d-inline-flex">
+                <p>{item} &nbsp;</p>
+              </div>
+            );
+          })}
+          {/* <div className="my-3">{room.tags}</div> */}
         </Card.Text>
 
         <Card.Text as="h3"> Rs. {room.price}</Card.Text>

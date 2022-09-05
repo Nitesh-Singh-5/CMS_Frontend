@@ -12,9 +12,7 @@ import {
 } from "react-bootstrap";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import {
-  listRoomDetails,
-} from "../actions/roomActions";
+import { listRoomDetails } from "../actions/roomActions";
 
 function RoomScreen({ history }) {
   const [qty, setQty] = useState(1);
@@ -26,7 +24,6 @@ function RoomScreen({ history }) {
   const { tags } = room;
 
   useEffect(() => {
-
     dispatch(listRoomDetails(id));
   }, [dispatch]);
 
@@ -54,19 +51,23 @@ function RoomScreen({ history }) {
               <ListGroup variant="flush">
                 <ListGroup.Item>beds : {room.beds}</ListGroup.Item>
 
-                <ListGroup.Item>Price: ${room.price}</ListGroup.Item>
+                <ListGroup.Item>Price: Rs. {room.price}</ListGroup.Item>
 
-                <ListGroup.Item>Price: ${room.floor}</ListGroup.Item>
+                <ListGroup.Item>Floor: {room.floor}</ListGroup.Item>
 
                 <ListGroup.Item>
-                  tags:
-                  {tags}
+                  tags : &nbsp;
+                  {tags?.map((item, id) => {
+                    return (
+                      <div className="d-inline-flex">
+                        <p> {item} &nbsp;</p>
+                      </div>
+                    );
+                  })}
                 </ListGroup.Item>
               </ListGroup>
             </Col>
           </Row>
-
-         
         </div>
       )}
     </div>

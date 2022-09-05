@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 import RoomList from "../components/RoomList";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
@@ -21,23 +21,52 @@ function HomeScreen() {
 
   return (
     <div>
-
-      <h1>Our Rooms</h1>
+      <h1 className="text-center">Our Rooms</h1>
       {loading ? (
         <Loader />
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
-        <div>
+        <Container fluid>
           <Row>
-            {rooms.map((room) => (
-              <Col key={room._id} sm={12} md={6} lg={4} xl={3}>
-                <RoomList room={room} />
-              </Col>
-            ))}
+            <Col md={3} xl={3}>
+              {/* {rooms.map((room) => (
+                <Col key={room._id} sm={12} md={6} lg={4} xl={3}>
+                  <RoomList room={room} />
+                </Col>
+              ))} */}
+              <Row>
+                <p>{console.log(rooms)}</p>
+                <p>
+                  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum{" "}
+                  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum{" "}
+                  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum{" "}
+                  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum{" "}
+                  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum{" "}
+                  lorem ipsum lorem ipsum{" "}
+                </p>
+                <p>
+                  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum{" "}
+                  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum{" "}
+                  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum{" "}
+                  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum{" "}
+                  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum{" "}
+                  lorem ipsum lorem ipsum{" "}
+                </p>
+              </Row>
+            </Col>
+            <Col md={9} xl={9}>
+              <Row>
+                {rooms.map((room) => (
+                  <Col key={room._id} sm={12} md={6} lg={4} xl={3}>
+                    <RoomList room={room} />
+                  </Col>
+                ))}
+              </Row>
+            </Col>
           </Row>
           <Paginate page={page} pages={pages} />
-        </div>
+        </Container>
       )}
     </div>
   );
