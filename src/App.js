@@ -5,7 +5,7 @@ import LoginScreen from "./screen/LoginScreen";
 import RegisterScreen from "./screen/RegisterScreen";
 import ProfileScreen from "./screen/ProfileScreen";
 import UserListScreen from "./screen/UserListScreen";
-// import UserListScreen from "./screen/UserListScreen";
+import UserEditScreen from "./screen/UserEditScreen";
 
 import "./App.css";
 import Header from "./components/Header";
@@ -21,7 +21,8 @@ function App() {
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/register" element={<RegisterScreen />} />
         <Route path="/profile" element={<ProfileScreen />} />
-        <Route path="/admin/userlist" element={<UserListScreen />} />
+        <Route path="/admin/users" element={<UserListScreen />} />
+        <Route path="/admin/users/:id" element={<UserEditScreen />} />
       </Routes>
     </Router>
   );

@@ -68,7 +68,7 @@ function UserListScreen({ history }) {
                 </td>
 
                 <td>
-                  <LinkContainer to={`/admin/user/${user._id}/edit`}>
+                  <LinkContainer to={`/admin/users/${user._id}`}>
                     <Button variant="light" className="btn-sm">
                       <AiOutlineEdit size="1rem" />
                     </Button>
