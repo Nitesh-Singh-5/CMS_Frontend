@@ -4,7 +4,7 @@ import HomeScreen from "./screen/HomeScreen";
 import LoginScreen from "./screen/LoginScreen";
 import RegisterScreen from "./screen/RegisterScreen";
 import ProfileScreen from "./screen/ProfileScreen";
-// import UserListScreen from "./screen/UserListScreen";
+import UserListScreen from "./screen/UserListScreen";
 // import UserListScreen from "./screen/UserListScreen";
 
 import "./App.css";
@@ -21,6 +21,7 @@ function App() {
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/register" element={<RegisterScreen />} />
         <Route path="/profile" element={<ProfileScreen />} />
+        <Route path="/admin/userlist" element={<UserListScreen />} />
       </Routes>
     </Router>
   );
