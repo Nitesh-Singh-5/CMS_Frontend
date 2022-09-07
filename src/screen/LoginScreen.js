@@ -8,7 +8,7 @@ import FormContainer from "../components/FormContainer";
 import { login } from "../actions/userActions";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
 function LoginScreen() {
   const history = useNavigate();

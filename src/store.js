@@ -11,8 +11,6 @@ import {
   // roomTopRatedReducer,
 } from "./reducers/roomReducers";
 
-// import { cartReducer } from "./reducers/cartReducers";
-
 import {
   userLoginReducer,
   userRegisterReducer,
@@ -37,9 +35,7 @@ const reducer = combineReducers({
   userList: userListReducer,
   userDelete: userDeleteReducer,
   userUpdate: userUpdateReducer,
-
 });
-
 
 const userInfoFromStorage = localStorage.getItem("userInfo")
   ? JSON.parse(localStorage.getItem("userInfo"))

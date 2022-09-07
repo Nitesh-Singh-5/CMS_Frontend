@@ -82,7 +82,7 @@ export const listRoomDetails = (id) => async (dispatch) => {
   }
 };
 
-export const deletRoom = (id) => async (dispatch, getState) => {
+export const deleteRoom = (id) => async (dispatch, getState) => {
   try {
     dispatch({
       type: ROOM_DELETE_REQUEST,
