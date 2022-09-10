@@ -153,7 +153,7 @@ export const updateRoom = (room) => async (dispatch, getState) => {
     dispatch({
       type: ROOM_UPDATE_REQUEST,
     }); 
-    console.log('data',room);
+    console.log('update room',room);
 
     const {
       userLogin: { userInfo },

@@ -60,7 +60,7 @@ function RoomListScreen() {
   ]);
 
   const deleteHandler = (id) => {
-    if (window.confirm("Are you sure you want to delete this product?")) {
+    if (window.confirm("Are you sure you want to delete this room?")) {
       dispatch(deleteRoom(id));
     }
   };

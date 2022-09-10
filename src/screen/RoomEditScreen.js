@@ -49,6 +49,7 @@ const RoomEditScreen = (props) => {
             if (!room.title || room._id !== Number(id)) {
                 dispatch(listRoomDetails(id))
             } else {
+                console.log(room.tags);
                 setTitle(room.title)
                 setPrice(room.price)
                 setImage(room.image)
@@ -75,9 +76,9 @@ const RoomEditScreen = (props) => {
             price,
             beds,
             floor,
-            tags,
-            room_no,
             room_type,
+            room_no,
+            tags,
             // description
         }))
     }
@@ -116,7 +117,7 @@ const RoomEditScreen = (props) => {
             </Link>
 
             <FormContainer>
-                {location.state != true ? <h1>Edit Room</h1>:<h1>Add Room</h1>}
+                {location.state !== true ? <h1>Edit Room</h1>:<h1>Add Room</h1>}
                 {loadingUpdate && <Loader />}
                 {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
 
@@ -199,43 +200,38 @@ const RoomEditScreen = (props) => {
 
                             <Form.Group controlId='room_type'>
                                 <Form.Label>Room Type</Form.Label>
-                                <Form.Select aria-label="Default select example">
-                                    <option
-                                        onChange={(e) => setRoom_type(e.target.value)}>{room_type}</option>
-                                    <option value="1">Furnished</option>
-                                    <option value="2">Semi-Furnished</option>
-                                    <option value="3">Un-Furnished</option>
-                                {/* </Form.Control> */}
+                                <Form.Select aria-label="Default select example" value={room_type} onClick={(e) => setRoom_type(e.target.value)}>
+                                    <option value="Furnished">Furnished</option>
+                                    <option value="Semi-Furnished">Semi-Furnished</option>
+                                    <option value="Un-Furnished">Un-Furnished</option>
                                 </Form.Select>
                             </Form.Group>
-                            <Form.Group controlId='countinstock'>
+                            <Form.Group controlId='room_no'>
                                 <Form.Label>Room No.</Form.Label>
                                 <Form.Control
 
                                     type='number'
-                                    placeholder='Enter stock'
+                                    placeholder='Enter room number'
                                     value={room_no}
                                     onChange={(e) => setRoom_No(e.target.value)}
                                 >
                                 </Form.Control>
                             </Form.Group>
 
-                            <Form.Group controlId='category'>
+                            <Form.Group controlId='tags'>
                                 <Form.Label>Tags</Form.Label>
                                 <Form.Control
-
                                     type='text'
-                                    placeholder='Enter category'
+                                    placeholder='Enter tags'
                                     value={tags}
                                     onChange={(e) => setTags(e.target.value)}
                                 >
                                 </Form.Control>
                             </Form.Group>
-
-                            <Button type='submit' variant='primary'>
-                                Update
-                        </Button>
-
+                            
+                                {location.state !== true ? <Button type='submit' variant='primary'>Update </Button>: <Button type='submit' variant='primary'>Add </Button>}
+                        
+ 
                         </Form>
                     )}
 

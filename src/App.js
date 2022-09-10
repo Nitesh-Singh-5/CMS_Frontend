@@ -11,7 +11,6 @@ import RoomEditScreen from "./screen/RoomEditScreen";
 import "./App.css";
 import Header from "./components/Header";
 import RoomScreen from "./screen/RoomScreen";
-import CreateRoom from "./screen/CreateRoom";
 
 function App() {
   return (
