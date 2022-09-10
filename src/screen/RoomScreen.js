@@ -15,7 +15,6 @@ import Message from "../components/Message";
 import { listRoomDetails } from "../actions/roomActions";
 
 function RoomScreen({ history }) {
-  const [qty, setQty] = useState(1);
   const { id } = useParams();
   const dispatch = useDispatch();
 

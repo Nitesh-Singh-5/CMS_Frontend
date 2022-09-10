@@ -7,10 +7,11 @@ import ProfileScreen from "./screen/ProfileScreen";
 import UserListScreen from "./screen/UserListScreen";
 import UserEditScreen from "./screen/UserEditScreen";
 import RoomListScreen from "./screen/RoomListScreen";
-
+import RoomEditScreen from "./screen/RoomEditScreen";
 import "./App.css";
 import Header from "./components/Header";
 import RoomScreen from "./screen/RoomScreen";
+import CreateRoom from "./screen/CreateRoom";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/admin/users" element={<UserListScreen />} />
         <Route path="/admin/users/:id" element={<UserEditScreen />} />
         <Route path="/admin/roomlist" element={<RoomListScreen />} />
+        <Route path="/admin/room/:id" element={<RoomEditScreen />} />
       </Routes>
     </Router>
   );

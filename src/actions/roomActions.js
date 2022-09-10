@@ -24,7 +24,7 @@ export const listRooms =
       dispatch({ type: ROOM_LIST_REQUEST });
 
       const { data } = await axios.get(`/api/rooms${keyword}`);
-      console.log(data);
+      // console.log(data);
       dispatch({
         type: ROOM_LIST_SUCCESS,
         payload: data,
@@ -40,11 +40,11 @@ export const listRooms =
     }
   };
 
-// export const listTopProducts = () => async (dispatch) => {
+// export const listToprooms = () => async (dispatch) => {
 //     try {
 //         dispatch({ type: ROOM_TOP_REQUEST })
 
-//         const { data } = await axios.get(`/api/products/top/`)
+//         const { data } = await axios.get(`/api/rooms/top/`)
 
 //         dispatch({
 //             type: ROOM_TOP_SUCCESS,
@@ -99,7 +99,7 @@ export const deleteRoom = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.delete(`/api/products/delete/${id}/`, config);
+    const { data } = await axios.delete(`/api/rooms/delete/${id}/`, config);
 
     dispatch({
       type: ROOM_DELETE_SUCCESS,
@@ -132,7 +132,7 @@ export const createRoom = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`/api/products/create/`, {}, config);
+    const { data } = await axios.post(`/api/rooms/create/`, {}, config);
     dispatch({
       type: ROOM_CREATE_SUCCESS,
       payload: data,
@@ -148,11 +148,12 @@ export const createRoom = () => async (dispatch, getState) => {
   }
 };
 
-export const updateRoom = (product) => async (dispatch, getState) => {
+export const updateRoom = (room) => async (dispatch, getState) => {
   try {
     dispatch({
       type: ROOM_UPDATE_REQUEST,
-    });
+    }); 
+    console.log('data',room);
 
     const {
       userLogin: { userInfo },
@@ -166,15 +167,15 @@ export const updateRoom = (product) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `/api/products/update/${product._id}/`,
-      product,
+      `/api/rooms/update/${room._id}/`,
+      room,
       config
     );
     dispatch({
       type: ROOM_UPDATE_SUCCESS,
       payload: data,
     });
-
+    console.log('data2',data);
     dispatch({
       type: ROOM_DETAILS_SUCCESS,
       payload: data,
@@ -190,7 +191,7 @@ export const updateRoom = (product) => async (dispatch, getState) => {
   }
 };
 
-// export const createRoomReview = (productId, review) => async (dispatch, getState) => {
+// export const createRoomReview = (roomId, review) => async (dispatch, getState) => {
 //     try {
 //         dispatch({
 //             type: ROOM_CREATE_REVIEW_REQUEST
@@ -208,7 +209,7 @@ export const updateRoom = (product) => async (dispatch, getState) => {
 //         }
 
 //         const { data } = await axios.post(
-//             `/api/products/${productId}/reviews/`,
+//             `/api/rooms/${roomId}/reviews/`,
 //             review,
 //             config
 //         )

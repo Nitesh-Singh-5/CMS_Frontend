@@ -11,7 +11,7 @@ import { useNavigate,useLocation } from "react-router-dom";
 import { AiOutlineEdit } from "react-icons/ai";
 import { MdDeleteForever } from "react-icons/md";
 
-function RoomListScreen({  match }) {
+function RoomListScreen() {
   const dispatch = useDispatch();
    const history = useNavigate();
   const roomList = useSelector((state) => state.roomList);
@@ -40,12 +40,12 @@ function RoomListScreen({  match }) {
     dispatch({ type: ROOM_CREATE_RESET });
 
     if (!userInfo.isAdmin) {
-      history.push("/login");
+      history("/login");
       history('/')
     }
 
     if (successCreate) {
-      history.push(`/admin/product/${createdRoom._id}/edit`);
+      history(`/admin/room/${createdRoom._id}`,{ state :true});
     } else {
       dispatch(listRooms());
     }
@@ -78,7 +78,7 @@ function RoomListScreen({  match }) {
 
         <Col className="text-right">
           <Button className="my-3" onClick={createRoomHandler}>
-            <i className="fas fa-plus"></i> Create Room
+            Create Room
           </Button>
         </Col>
       </Row>
@@ -115,6 +115,7 @@ function RoomListScreen({  match }) {
                   <td>{room.beds}</td>
                   <td>Rs. {room.price}</td>
                   <td>{room.floor}</td>
+                  <td>{room.room_type}</td>
                   <td className="d-inline-flex"> tags : &nbsp;
                   {room.tags.map((item)=>{
                     return(
@@ -123,7 +124,7 @@ function RoomListScreen({  match }) {
                   })}
                   </td>
                   <td>
-                    <LinkContainer to={`/admin/room/${room._id}/edit`}>
+                    <LinkContainer to={`/admin/room/${room._id}`}>
                       <Button variant="light" className="btn-sm">
                         <AiOutlineEdit size="1rem" />
                       </Button>
