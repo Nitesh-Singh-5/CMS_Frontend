@@ -11,6 +11,7 @@ import RoomEditScreen from "./screen/RoomEditScreen";
 import "./App.css";
 import Header from "./components/Header";
 import RoomScreen from "./screen/RoomScreen";
+import Verification from './screen/Verification'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/register" element={<RegisterScreen />} />
         <Route path="/profile" element={<ProfileScreen />} />
+        <Route path="/verification/:id" element={<Verification />} />
         <Route path="/admin/users" element={<UserListScreen />} />
         <Route path="/admin/users/:id" element={<UserEditScreen />} />
         <Route path="/admin/roomlist" element={<RoomListScreen />} />

@@ -153,7 +153,7 @@ export const updateRoom = (room) => async (dispatch, getState) => {
     dispatch({
       type: ROOM_UPDATE_REQUEST,
     }); 
-    console.log('update room',room);
+    // console.log('update room',room);
 
     const {
       userLogin: { userInfo },
@@ -175,7 +175,7 @@ export const updateRoom = (room) => async (dispatch, getState) => {
       type: ROOM_UPDATE_SUCCESS,
       payload: data,
     });
-    console.log('data2',data);
+    // console.log('data2',data);
     dispatch({
       type: ROOM_DETAILS_SUCCESS,
       payload: data,

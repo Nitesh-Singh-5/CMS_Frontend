@@ -65,6 +65,7 @@ function RoomScreen({ history }) {
                   })}
                 </ListGroup.Item>
               </ListGroup>
+              <Link to={`/verification/${room._id}`}><Button>Book Room</Button></Link>
             </Col>
           </Row>
         </div>

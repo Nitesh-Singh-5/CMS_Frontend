@@ -11,7 +11,7 @@ import { USER_UPDATE_RESET } from "../constants/userConstants";
 function UserEditScreen({ match, history }) {
   const navigate = useNavigate();
   const params = useParams();
-  console.log(params);
+  // console.log(params);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
@@ -33,7 +33,7 @@ function UserEditScreen({ match, history }) {
       dispatch({ type: USER_UPDATE_RESET });
       history.push("/admin/userlist");
     } else {
-      console.log(userDetails);
+      // console.log(userDetails);
       if (!user.name || user._id !== Number(params.id)) {
         dispatch(getUserDetails(params.id));
       } else {

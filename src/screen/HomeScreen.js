@@ -10,10 +10,10 @@ import { listRooms } from "../actions/roomActions";
 function HomeScreen() {
   const dispatch = useDispatch();
   const roomList = useSelector((state) => state.roomList);
-  console.log(roomList);
+  // console.log(roomList);
 
   const { error, loading, rooms, page, pages } = roomList;
-  console.log(loading);
+  // console.log(loading);
   // let keyword = history.location.search;
   useEffect(() => {
     dispatch(listRooms());
@@ -36,7 +36,6 @@ function HomeScreen() {
                 </Col>
               ))} */}
               <Row>
-                <p>{console.log(rooms)}</p>
                 <p>
                   lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum{" "}
                   lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum{" "}
